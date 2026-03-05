@@ -1,0 +1,173 @@
+:root {
+  --primary: #d4af37;
+  /* Metallic Gold */
+  --secondary: #2c2c2c;
+  --bg: #0f0f0f;
+  --surface: rgba(255, 255, 255, 0.05);
+  --glass: rgba(255, 255, 255, 0.1);
+  --text: #f0f0f0;
+  --text-muted: #a0a0a0;
+  --accent: #e5c07b;
+  --danger: #ff4d4d;
+  --success: #4caf50;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.05) 0px, transparent 50%);
+  color: var(--text);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Mobile-First: Base Styles (Small Screens) */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem; /* Reduced from 2rem for mobile */
+}
+
+header {
+  display: flex;
+  flex-direction: column; /* Stack header on mobile */
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 2rem; /* Reduced from 3rem */
+}
+
+h1 {
+  font-size: 2rem; /* Reduced from 2.5rem */
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass);
+  border-radius: 24px;
+  padding: 1.25rem; /* Slightly reduced */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column by default */
+  gap: 1.25rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  width: 100%; /* Full width buttons on mobile */
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: black;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--primary);
+}
+
+.status-completed {
+  background: rgba(76, 175, 80, 0.2);
+  color: var(--success);
+}
+
+.urgency-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Tablet / Desktop Upgrades */
+@media (min-width: 640px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  button {
+    width: auto; /* Buttons return to auto width */
+  }
+
+  .app-container {
+    padding: 2rem;
+  }
+
+  .glass-card {
+    padding: 1.5rem;
+  }
+}
