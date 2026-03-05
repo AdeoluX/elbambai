@@ -34,19 +34,23 @@ body {
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem; /* Reduced from 2rem for mobile */
+  padding: 1.5rem;
+  /* Reduced from 2rem for mobile */
 }
 
 header {
   display: flex;
-  flex-direction: column; /* Stack header on mobile */
+  flex-direction: column;
+  /* Stack header on mobile */
   gap: 1.5rem;
   align-items: flex-start;
-  margin-bottom: 2rem; /* Reduced from 3rem */
+  margin-bottom: 2rem;
+  /* Reduced from 3rem */
 }
 
 h1 {
-  font-size: 2rem; /* Reduced from 2.5rem */
+  font-size: 2rem;
+  /* Reduced from 2.5rem */
   font-weight: 800;
   letter-spacing: -0.05em;
   background: linear-gradient(to right, var(--primary), var(--accent));
@@ -61,7 +65,8 @@ h1 {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass);
   border-radius: 24px;
-  padding: 1.25rem; /* Slightly reduced */
+  padding: 1.25rem;
+  /* Slightly reduced */
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -71,7 +76,8 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr; /* Single column by default */
+  grid-template-columns: 1fr;
+  /* Single column by default */
   gap: 1.25rem;
 }
 
@@ -82,7 +88,8 @@ button {
   padding: 0.8rem 1.2rem;
   font-weight: 600;
   transition: all 0.2s ease;
-  width: 100%; /* Full width buttons on mobile */
+  width: 100%;
+  /* Full width buttons on mobile */
 }
 
 .btn-primary {
@@ -160,7 +167,8 @@ button {
   }
 
   button {
-    width: auto; /* Buttons return to auto width */
+    width: auto;
+    /* Buttons return to auto width */
   }
 
   .app-container {
@@ -169,5 +177,34 @@ button {
 
   .glass-card {
     padding: 1.5rem;
+  }
+
+  /* Modal row: side by side on tablet+ */
+  .modal-row {
+    flex-direction: row;
+  }
+
+  /* Modal centered on desktop */
+  .modal-sheet {
+    align-items: center;
+  }
+}
+
+/* Modal row: stacked on mobile by default */
+.modal-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Empty state padding fix for mobile */
+.empty-state {
+  padding: 3rem 1.5rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .empty-state {
+    padding: 4rem;
   }
 }

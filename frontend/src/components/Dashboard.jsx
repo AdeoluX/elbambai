@@ -8,8 +8,8 @@ const Dashboard = ({ orders, onUpdateStatus }) => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="glass-card"
-                style={{ textAlign: 'center', padding: '4rem', marginTop: '2rem' }}
+                className="glass-card empty-state"
+                style={{ textAlign: 'center' }}
             >
                 <h3 style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>No orders currently in the atelier.</h3>
                 <p>Start by adding a new creation to your list.</p>

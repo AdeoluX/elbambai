@@ -57,7 +57,7 @@ function App() {
     <div className="app-container">
       <header>
         <div className="fade-in">
-          <h1>Atelier Orders</h1>
+          <h1>Elbambai</h1>
           <p style={{ color: 'var(--text-muted)' }}>Keep track of every masterpiece.</p>
         </div>
         <button className="btn-primary" onClick={() => setIsModalOpen(true)}>
