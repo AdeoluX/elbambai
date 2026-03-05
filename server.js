@@ -16,18 +16,18 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
 // API Routes
-app.get('/api/orders', (req, res) => {
+app.get('/api/orders', async (req, res) => {
     try {
-        const orders = getOrders();
+        const orders = await getOrders();
         res.json(orders);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-app.get('/api/orders/:id', (req, res) => {
+app.get('/api/orders/:id', async (req, res) => {
     try {
-        const order = getOrderById(req.params.id);
+        const order = await getOrderById(req.params.id);
         if (!order) return res.status(404).json({ message: 'Order not found' });
         res.json(order);
     } catch (error) {
@@ -35,27 +35,27 @@ app.get('/api/orders/:id', (req, res) => {
     }
 });
 
-app.post('/api/orders', (req, res) => {
+app.post('/api/orders', async (req, res) => {
     try {
-        const newOrder = createOrder(req.body);
+        const newOrder = await createOrder(req.body);
         res.status(201).json(newOrder);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-app.put('/api/orders/:id', (req, res) => {
+app.put('/api/orders/:id', async (req, res) => {
     try {
-        const updatedOrder = updateOrder(req.params.id, req.body);
+        const updatedOrder = await updateOrder(req.params.id, req.body);
         res.json(updatedOrder);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-app.delete('/api/orders/:id', (req, res) => {
+app.delete('/api/orders/:id', async (req, res) => {
     try {
-        deleteOrder(req.params.id);
+        await deleteOrder(req.params.id);
         res.json({ message: 'Order deleted successfully' });
     } catch (error) {
         res.status(500).json({ error: error.message });
