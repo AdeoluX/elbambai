@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: atelier-orders
+    runtime: node
+    buildCommand: npm install && cd frontend && npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_PATH
+        value: /data/orders.db
+    disk:
+      name: atelier-data
+      mountPath: /data
+      sizeGB: 1

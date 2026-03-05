@@ -6,3 +6,4 @@ orders.db
 *.log
 frontend/dist
 /data
+# render.yaml is intentionally NOT ignored - Render needs it
